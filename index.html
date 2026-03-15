@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         :root {
-            /* Material You Dark Theme Palette (Tonal Palettes) */
-            --md-sys-color-background: #1A1C1E;
+            /* Material You Dark Theme Palette - Tuned for image_1.png background */
+            /* Background definition using image_1.png as base gradient */
+            --bg-gradient: linear-gradient(135deg, #4A5C66 0%, #303336 60%, #1A1C1E 100%);
+            
             --md-sys-color-on-background: #E2E2E6;
-            --md-sys-color-surface: #2F3033;
-            --md-sys-color-primary: #D1E4FF;
+            --md-sys-color-surface: #262A2E; /* Slightly darker and warmer for better contrast on bg */
+            --md-sys-color-primary: #9BCBFF; /* A cooler, brighter blue to pop against background */
             --md-sys-color-on-primary: #003258;
             --md-sys-color-secondary-container: #3E4759;
             --md-sys-color-on-secondary-container: #D7E3F7;
@@ -22,7 +24,10 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: var(--md-sys-color-background);
+            background-color: #1A1C1E; /* Fallback for older browsers */
+            background-image: var(--bg-gradient); /* Applied your gradient wallpapaer */
+            background-size: cover;
+            background-repeat: no-repeat;
             color: var(--md-sys-color-on-background);
             display: flex;
             justify-content: center;
@@ -40,15 +45,17 @@
         /* Card Style */
         .profile-card {
             background-color: var(--md-sys-color-surface);
-            padding: 2rem;
+            padding: 2.5rem; /* slightly increased padding */
             border-radius: 28px; /* Material 3 Extra Large Corner */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6); /* Slightly more prominent shadow */
+            backdrop-filter: blur(5px); /* subtle glass effect for more depth */
         }
 
         .avatar {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #004A77, #D1E4FF);
+            /* Avatar matches the background mood but is distinct */
+            background: linear-gradient(135deg, #004A77, #9BCBFF);
             border-radius: 50%;
             margin: 0 auto 1.5rem;
             display: flex;
@@ -67,13 +74,17 @@
         p.subtitle {
             color: var(--md-sys-color-outline);
             margin-bottom: 2rem;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Slightly larger and changed icon */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         /* Chips / Badges */
         .chips {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             justify-content: center;
             margin-bottom: 2rem;
             flex-wrap: wrap;
@@ -83,12 +94,12 @@
             background-color: var(--md-sys-color-secondary-container);
             color: var(--md-sys-color-on-secondary-container);
             padding: 6px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 12px; /* Material 3 Medium Corner */
+            font-size: 0.95rem;
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         /* Buttons */
@@ -102,19 +113,20 @@
             text-decoration: none;
             background-color: var(--md-sys-color-primary);
             color: var(--md-sys-color-on-primary);
-            padding: 14px;
+            padding: 16px;
             border-radius: 16px; /* Material 3 Large Corner */
             font-weight: 500;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             transition: transform 0.2s, opacity 0.2s;
         }
 
         .link-btn:hover {
-            transform: scale(1.02);
-            opacity: 0.9;
+            transform: translateY(-2px); /* Slight lift on hover */
+            opacity: 0.95;
         }
 
         /* Language Switcher */
@@ -131,7 +143,7 @@
         }
 
         .lang-switch:hover {
-            background-color: rgba(209, 228, 255, 0.1);
+            background-color: rgba(155, 203, 255, 0.1);
         }
 
         [lang="en"] { display: none; }
@@ -147,7 +159,10 @@
 
         <div id="content-ru" lang="ru">
             <h1>shwouble | psp tech</h1>
-            <p class="subtitle">Разработчик & Энтузиаст</p>
+            <p class="subtitle">
+                <span class="material-symbols-rounded" style="font-size: 20px;">memory</span>
+                Arch Linux Enjoyer
+            </p>
             
             <div class="chips">
                 <div class="chip">
@@ -162,12 +177,15 @@
 
             <div class="links">
                 <a href="https://t.me/shwouble" class="link-btn">
-                    Telegram Канал
+                    <span class="material-symbols-rounded">chat</span>
+                    Telegram
                 </a>
                 <a href="https://t.me/shwoublebot" class="link-btn">
+                    <span class="material-symbols-rounded">robot</span>
                     Мой Бот
                 </a>
                 <a href="https://github.com/ShwoubleTrouble/" class="link-btn">
+                    <span class="material-symbols-rounded">code_blocks</span>
                     GitHub
                 </a>
             </div>
@@ -175,7 +193,10 @@
 
         <div id="content-en" lang="en">
             <h1>shwouble | psp tech</h1>
-            <p class="subtitle">Developer & Enthusiast</p>
+            <p class="subtitle">
+                <span class="material-symbols-rounded" style="font-size: 20px;">memory</span>
+                Arch Linux Enjoyer
+            </p>
             
             <div class="chips">
                 <div class="chip">
@@ -190,12 +211,15 @@
 
             <div class="links">
                 <a href="https://t.me/shwouble" class="link-btn">
-                    Telegram Channel
+                    <span class="material-symbols-rounded">chat</span>
+                    Telegram
                 </a>
                 <a href="https://t.me/shwoublebot" class="link-btn">
+                    <span class="material-symbols-rounded">robot</span>
                     My Bot
                 </a>
                 <a href="https://github.com/ShwoubleTrouble/" class="link-btn">
+                    <span class="material-symbols-rounded">code_blocks</span>
                     GitHub
                 </a>
             </div>
